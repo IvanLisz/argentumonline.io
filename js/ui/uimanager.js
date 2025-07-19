@@ -1,7 +1,15 @@
 /**
  * Created by horacio on 4/6/16.
  */
-define(['enums', 'ui/loginui', 'ui/crearpjui', 'ui/game/gameui', 'ui/popups/mensaje', 'ui/introui'], function (Enums, LoginUI, CrearPjUI, GameUI, Mensaje, IntroUI) {
+import Enums from '../enums.js';
+import LoginUI from '../ui/loginui.js';
+import CrearPjUI from '../ui/crearpjui.js';
+import GameUI from '../ui/game/gameui.js';
+import Mensaje from '../ui/popups/mensaje.js';
+import IntroUI from '../ui/introui.js';
+import _ from 'lodash';
+
+
 
     class UIManager {
         constructor(assetManager) {
@@ -193,5 +201,5 @@ define(['enums', 'ui/loginui', 'ui/crearpjui', 'ui/game/gameui', 'ui/popups/mens
 
     }
 
-    return UIManager;
-});
+    
+export default UIManager;

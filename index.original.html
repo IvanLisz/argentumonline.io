@@ -4,13 +4,13 @@
     <meta charset="iso-8859-1"> <!-- "utf-8" -->
     <meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="mobile-web-app-capable" content="yes">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
     <link rel="icon" type="image/png" href="imagenes/favicon.png">
     <meta property="og:title" content="Argentum Online">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Argentum Online">
     <meta property="og:description" content="Argentum Online">
+    <link rel="stylesheet" href="css/main.css" type="text/css">
     <title>Argentum online</title>
 
     <!-- google analytics -->
@@ -204,8 +204,13 @@
     }
 </script>
 
-<!-- Vite entry point -->
-<script type="module" src="/js/main-vite.js"></script>
+<!-- babel polyfill -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.13.0/polyfill.min.js"></script>
+
+<script>
+    var require = {waitSeconds: 60};
+</script>
+<script data-main="js/home" src="js/lib/require.js"></script>
 </body>
 
 </html>

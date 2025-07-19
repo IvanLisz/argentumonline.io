@@ -1,5 +1,4 @@
-define(function () {
-    class ByteQueue {
+class ByteQueue {
         constructor(ws) {
             this.ws = ws;
             this._data = [];
@@ -131,5 +130,4 @@ define(function () {
         }
     }
 
-    return ByteQueue;
-});
+export default ByteQueue;

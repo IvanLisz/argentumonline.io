@@ -2,7 +2,11 @@
  * Created by horacio on 5/3/16.
  */
 
-define(['enums', 'font', 'lib/pixi'], function (Enums, Font, PIXI) {
+import Enums from '../enums.js';
+import Font from '../font.js';
+import * as PIXI from 'pixi.js';
+
+
 
     class Macros {
         constructor(game, intervalos, acciones) {
@@ -109,5 +113,5 @@ define(['enums', 'font', 'lib/pixi'], function (Enums, Font, PIXI) {
         }
 
     }
-    return Macros;
-});
+    
+export default Macros;

@@ -2,7 +2,9 @@
  * Created by horacio on 7/3/16.
  */
 
-define([], function () {
+
+
+
 
     class PlayerMovement {
 
@@ -134,5 +136,5 @@ define([], function () {
 
     }
 
-    return PlayerMovement;
-});
+    
+export default PlayerMovement;

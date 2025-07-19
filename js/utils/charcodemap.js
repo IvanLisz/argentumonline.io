@@ -1,5 +1,5 @@
 /* from http://stackoverflow.com/a/23377822 */
-define({
+export default {
     keys: [
         "", // [0]
         "", // [1]
@@ -258,4 +258,4 @@ define({
         "WIN_OEM_CLEAR", // [254]
         "" // [255]
     ]
-});
+};

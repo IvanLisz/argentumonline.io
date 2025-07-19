@@ -2,7 +2,11 @@
  * Created by horacio on 4/12/16.
  */
 
-define(["text!../../../menus/mapa.html!strip", 'ui/popups/popup'], function (DOMdata, PopUp) {
+// Import HTML template as string (will be handled by Vite)
+import DOMdata from '../../../menus/mapa.html?raw';
+import PopUp from '../../ui/popups/popup.js';
+
+
 
     class GuiaMapa extends PopUp {
         constructor(game, acciones) {
@@ -26,5 +30,5 @@ define(["text!../../../menus/mapa.html!strip", 'ui/popups/popup'], function (DOM
         }
     }
 
-    return GuiaMapa;
-});
+    
+export default GuiaMapa;

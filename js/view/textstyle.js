@@ -6,7 +6,9 @@
  * Created by horacio on 3/10/16.
  */
 
-define(['lib/pixi'], function (PIXI) {
+import * as PIXI from 'pixi.js';
+
+
 
     class TextStyle extends PIXI.TextStyle {
         constructor(baseFont, escala, font) {
@@ -68,5 +70,5 @@ define(['lib/pixi'], function (PIXI) {
         //     }
         // }
     }
-    return TextStyle;
-});
+    
+export default TextStyle;

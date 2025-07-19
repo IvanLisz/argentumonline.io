@@ -1,4 +1,6 @@
-define(['enums'], function (Enums) {
+import Enums from '../enums.js';
+
+
 
     class Camera {
         constructor(tilesize) {
@@ -226,5 +228,5 @@ define(['enums'], function (Enums) {
         }
     }
 
-    return Camera;
-});
+    
+export default Camera;

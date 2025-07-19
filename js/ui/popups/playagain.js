@@ -2,7 +2,11 @@
  * Created by horacio on 4/5/17.
  */
 
-define(["text!../../../menus/playAgain.html!strip", 'ui/popups/popup'], function (DOMdata, PopUp) {
+// Import HTML template as string (will be handled by Vite)
+import DOMdata from '../../../menus/playAgain.html?raw';
+import PopUp from '../../ui/popups/popup.js';
+
+
 
   class playAgain extends PopUp {
     constructor(game, setCrearPjScreenCb) {
@@ -15,15 +19,19 @@ define(["text!../../../menus/playAgain.html!strip", 'ui/popups/popup'], function
       super(DOMdata, options);
       this.game = game;
       this.setCrearPjScreenCb = setCrearPjScreenCb;
-      this.$playAgain = $("#playAgain");
-      this.$changeCharacter = $("#changeCharacter");
-      this.$back = $("#playAgainBack");
-
-      this.initCallbacks();
+      this._callbacksInitialized = false;
     }
 
     show() {
       super.show();
+      
+      if (!this._callbacksInitialized) {
+        this.$playAgain = this.$this.find("#playAgain");
+        this.$changeCharacter = this.$this.find("#changeCharacter");
+        this.$back = this.$this.find("#playAgainBack");
+        this.initCallbacks();
+        this._callbacksInitialized = true;
+      }
     }
 
     initCallbacks() {
@@ -63,5 +71,5 @@ define(["text!../../../menus/playAgain.html!strip", 'ui/popups/popup'], function
 
     }
   }
-  return playAgain;
-});
+  
+export default playAgain;

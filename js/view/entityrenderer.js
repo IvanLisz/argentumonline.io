@@ -2,9 +2,17 @@
  * Created by horacio on 8/20/16.
  */
 
-define(['enums', 'utils/util', 'font', 'lib/pixi', 'view/charactersprites', 'view/charactername',
-        'view/charactertext', 'view/spritegrh', 'view/rendererutils'],
-    function (Enums, Utils, Font, PIXI, CharacterSprites, CharacterName, CharacterText, SpriteGrh, RendererUtils) {
+import Enums from '../enums.js';
+import Utils from '../utils/util.js';
+import Font from '../font.js';
+import * as PIXI from 'pixi.js';
+import CharacterSprites from '../view/charactersprites.js';
+import CharacterName from '../view/charactername.js';
+import CharacterText from '../view/charactertext.js';
+import SpriteGrh from '../view/spritegrh.js';
+import RendererUtils from '../view/rendererutils.js';
+
+
 
         class EntityRenderer {
             constructor(escala, entityContainer, entityNamesContainer, entityChatContainer, camera, assetManager) {
@@ -285,5 +293,5 @@ define(['enums', 'utils/util', 'font', 'lib/pixi', 'view/charactersprites', 'vie
             }
 
         }
-        return EntityRenderer;
-    });
+        
+export default EntityRenderer;

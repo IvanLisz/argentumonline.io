@@ -2,7 +2,11 @@
  * Created by horacio on 7/9/16.
  */
 
-define(["text!../../../menus/noticiasClan.html!strip", 'ui/popups/popup'], function (DOMdata, PopUp) {
+// Import HTML template as string (will be handled by Vite)
+import DOMdata from '../../../menus/noticiasClan.html?raw';
+import PopUp from '../../ui/popups/popup.js';
+
+
 
     class NoticiasClan extends PopUp {
         constructor() {
@@ -40,5 +44,5 @@ define(["text!../../../menus/noticiasClan.html!strip", 'ui/popups/popup'], funct
 
     }
 
-    return NoticiasClan;
-});
+    
+export default NoticiasClan;

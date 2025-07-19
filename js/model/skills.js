@@ -3,7 +3,10 @@
  */
 
 
-define(['enums'], function (Enums) {
+import Enums from '../enums.js';
+import _ from 'lodash';
+
+
 
     class Skills {
         constructor() {
@@ -93,7 +96,5 @@ define(['enums'], function (Enums) {
             nombres[Enums.Skill.fundirmetal] = "????";
         }
     }
-    return Skills;
-});
-
-
+    
+export default Skills;

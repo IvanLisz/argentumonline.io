@@ -3,7 +3,11 @@
  */
 
 
-define(['utils/charcodemap', 'ui/popups/popup'], function (CharCodeMap, PopUp) {
+import CharCodeMap from '../../../utils/charcodemap.js';
+import PopUp from '../../../ui/popups/popup.js';
+import log from '../../../utils/log.js';
+
+
 
     class ConfigurarTeclas {
         constructor(settings, updateKeysCb, showMensajeCb) {
@@ -11,10 +15,14 @@ define(['utils/charcodemap', 'ui/popups/popup'], function (CharCodeMap, PopUp) {
             this.nuevasKeys = null;
             this.updateKeysCb = updateKeysCb;
             this.showMensajeCb = showMensajeCb;
-            this.initCallbacks();
+            this._initialized = false;
         }
 
         onShow() {
+            if (!this._initialized) {
+                this.initCallbacks();
+                this._initialized = true;
+            }
             this.nuevasKeys = $.extend(true,{}, this.settings.getKeys()); // clonar
             this.displayKeys();
         }
@@ -93,5 +101,5 @@ define(['utils/charcodemap', 'ui/popups/popup'], function (CharCodeMap, PopUp) {
         }
     }
 
-    return ConfigurarTeclas;
-});
+    
+export default ConfigurarTeclas;

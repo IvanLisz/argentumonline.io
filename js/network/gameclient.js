@@ -1,4 +1,12 @@
-define(['../utils/util', 'enums', 'font', 'network/protocol', 'network/bytequeue', 'lib/websock', 'json!../../config.json'], function (Utils, Enums, Font, Protocolo, ByteQueue, __websock, config) {
+import Utils from '../utils/util.js';
+import Enums from '../enums.js';
+import Font from '../font.js';
+import Protocolo from '../network/protocol.js';
+import ByteQueue from '../network/bytequeue.js';
+import Websock from '../lib/websock.js';
+import config from '../../config.json';
+
+
 
     class GameClient {
         constructor(game, uiManager, gameUI) {
@@ -2136,5 +2144,5 @@ define(['../utils/util', 'enums', 'font', 'network/protocol', 'network/bytequeue
         }
     }
 
-    return GameClient;
-});
+    
+export default GameClient;

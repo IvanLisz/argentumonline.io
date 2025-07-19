@@ -2,7 +2,12 @@
  * Created by horacio on 3/24/16.
  */
 
-define(["text!../../../menus/boveda.html!strip", 'ui/popups/popup', 'ui/game/itemgrid'], function (DOMdata, PopUp, ItemGrid) {
+// Import HTML template as string (will be handled by Vite)
+import DOMdata from '../../../menus/boveda.html?raw';
+import PopUp from '../../ui/popups/popup.js';
+import ItemGrid from '../../ui/game/itemgrid.js';
+
+
 
     class Boveda extends PopUp {
         constructor(game, acciones) {
@@ -161,5 +166,5 @@ define(["text!../../../menus/boveda.html!strip", 'ui/popups/popup', 'ui/game/ite
         }
     }
 
-    return Boveda;
-});
+    
+export default Boveda;

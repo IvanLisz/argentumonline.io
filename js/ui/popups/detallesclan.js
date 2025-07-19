@@ -2,7 +2,11 @@
  * Created by horacio on 6/17/16.
  */
 
-define(["text!../../../menus/detallesClan.html!strip", 'ui/popups/popup'], function (DOMdata, PopUp) {
+// Import HTML template as string (will be handled by Vite)
+import DOMdata from '../../../menus/detallesClan.html?raw';
+import PopUp from '../../ui/popups/popup.js';
+
+
 
     class DetallesClan extends PopUp {
         constructor(game,solicitudClanCb) {
@@ -61,5 +65,5 @@ define(["text!../../../menus/detallesClan.html!strip", 'ui/popups/popup'], funct
 
     }
 
-    return DetallesClan;
-});
+    
+export default DetallesClan;

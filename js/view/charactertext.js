@@ -2,7 +2,11 @@
  * Created by horacio on 3/9/16.
  */
 
-define(['font', 'lib/pixi', 'view/textstyle'], function (Font, PIXI, TextStyle) {
+import Font from '../font.js';
+import * as PIXI from 'pixi.js';
+import TextStyle from '../view/textstyle.js';
+
+
 
     class CharacterText extends PIXI.Container {
         constructor(escala) {
@@ -140,5 +144,5 @@ define(['font', 'lib/pixi', 'view/textstyle'], function (Font, PIXI, TextStyle) 
         }
     }
 
-    return CharacterText;
-});
+    
+export default CharacterText;

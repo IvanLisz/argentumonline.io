@@ -2,7 +2,11 @@
  * Created by horacio on 4/20/16.
  */
 
-define(['enums', 'lib/howler', 'assets/audioclima'], function (Enums, Howler, AudioClima) {
+import Enums from '../enums.js';
+import { Howl, Howler } from 'howler';
+import AudioClima from '../assets/audioclima.js';
+
+
 
     class Audio {
         constructor() {
@@ -49,7 +53,7 @@ define(['enums', 'lib/howler', 'assets/audioclima'], function (Enums, Howler, Au
                         fadingOutMusic.stop();
                     });
                 }
-                this.currentMusic = new Howler.Howl({
+                this.currentMusic = new Howl({
                     src: [this.MUSIC_PATH + nombre + this.MAIN_EXTENSION, this.MUSIC_PATH + nombre + this.SECONDARY_EXTENSION],
                     loop: true
                 });
@@ -86,7 +90,7 @@ define(['enums', 'lib/howler', 'assets/audioclima'], function (Enums, Howler, Au
                 return;
             }
 
-            this._sounds[nombre] = new Howler.Howl({
+            this._sounds[nombre] = new Howl({
                 src: [this.SOUND_PATH + nombre + this.MAIN_EXTENSION, this.SOUND_PATH + nombre + this.SECONDARY_EXTENSION],
                 sprite: sprite
             });
@@ -149,5 +153,5 @@ define(['enums', 'lib/howler', 'assets/audioclima'], function (Enums, Howler, Au
         }
     }
 
-    return Audio;
-});
+    
+export default Audio;

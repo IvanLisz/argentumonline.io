@@ -2,7 +2,11 @@
  * Created by horacio on 4/19/16.
  */
 
-define(["text!../../../menus/inGameMensaje.html!strip", 'ui/popups/popup'], function (DOMdata, PopUp) {
+// Import HTML template as string (will be handled by Vite)
+import DOMdata from '../../../menus/inGameMensaje.html?raw';
+import PopUp from '../../ui/popups/popup.js';
+
+
 
     class InGameMensaje extends PopUp {
         constructor() {
@@ -30,5 +34,5 @@ define(["text!../../../menus/inGameMensaje.html!strip", 'ui/popups/popup'], func
         }
     }
 
-    return InGameMensaje;
-});
+    
+export default InGameMensaje;

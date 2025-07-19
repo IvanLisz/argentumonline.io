@@ -7,17 +7,17 @@
 @import "variables";
 @import "utils";
 
-@import "jqueryUIModificaciones";
-@import "bootstrapModificaciones";
-
 @import "icons";
 @import "borders";
 @import "fonts";
 @import "botones";
 @import "formElements";
+@import "general";
+
+@import "jqueryUIModificaciones";
+@import "bootstrapModificaciones";
 
 @import "global";
-@import "general";
 @import "footer";
 
 @import "intro";

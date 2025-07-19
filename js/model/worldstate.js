@@ -2,7 +2,9 @@
  * Created by horacio on 9/1/16.
  */
 
-define(['enums'], function (Enums) {
+import Enums from '../enums.js';
+
+
     class WorldState {
         constructor(renderer, audio) {
             this.renderer = renderer;
@@ -72,5 +74,5 @@ define(['enums'], function (Enums) {
         }
     }
 
-    return WorldState;
-});
+    
+export default WorldState;

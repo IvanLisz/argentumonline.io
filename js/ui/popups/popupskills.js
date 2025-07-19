@@ -2,7 +2,11 @@
  * Created by horacio on 4/20/16.
  */
 
-define(["text!../../../menus/skills.html!strip", 'ui/popups/popup'], function (DOMdata, PopUp) {
+// Import HTML template as string (will be handled by Vite)
+import DOMdata from '../../../menus/skills.html?raw';
+import PopUp from '../../ui/popups/popup.js';
+
+
 
     class popUpSkills extends PopUp {
         constructor(game) {
@@ -146,5 +150,5 @@ define(["text!../../../menus/skills.html!strip", 'ui/popups/popup'], function (D
         }
     }
 
-    return popUpSkills;
-});
+    
+export default popUpSkills;

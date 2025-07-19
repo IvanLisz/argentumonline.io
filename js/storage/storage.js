@@ -2,7 +2,9 @@
  * Created by horacio on 07/09/2016.
  */
 
-define([], function () {
+
+
+
     class Storage {
         constructor() {
             this.cache = {};
@@ -47,5 +49,5 @@ define([], function () {
 
     }
 
-    return Storage;
-});
+    
+export default Storage;

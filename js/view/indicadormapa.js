@@ -2,7 +2,12 @@
  * Created by horacio on 13/08/2016.
  */
 
-define(['font', 'lib/pixi', 'utils/palette', 'view/textstyle'], function (Font, PIXI, Palette, TextStyle) {
+import Font from '../font.js';
+import * as PIXI from 'pixi.js';
+import Palette from '../utils/palette.js';
+import TextStyle from '../view/textstyle.js';
+
+
 
     class IndicadorMapa extends PIXI.Text {
         constructor(escala) {
@@ -20,5 +25,5 @@ define(['font', 'lib/pixi', 'utils/palette', 'view/textstyle'], function (Font, 
         }
 
     }
-    return IndicadorMapa;
-});
+    
+export default IndicadorMapa;

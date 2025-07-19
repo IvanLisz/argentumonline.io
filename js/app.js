@@ -1,6 +1,8 @@
-define(['model/gamemanager', 'view/renderer', 'network/gameclient'], function (GameManager, Renderer, GameClient) {
+import GameManager from './model/gamemanager.js';
+import Renderer from './view/renderer.js';
+import GameClient from './network/gameclient.js';
 
-    class App {
+class App {
         constructor(assetManager, uiManager, settings) {
             this.assetManager = assetManager;
             this.uiManager = uiManager;
@@ -80,10 +82,16 @@ define(['model/gamemanager', 'view/renderer', 'network/gameclient'], function (G
             this.uiManager.loginUI.setPlayButtonState(false);
             var self = this;
 
-            this.client.intentarCrearPersonaje(function () {
+            if (this.client) {
+                this.client.intentarCrearPersonaje(function () {
+                    self.uiManager.setCrearPJScreen();
+                    self.uiManager.loginUI.setPlayButtonState(true);
+                });
+            } else {
+                // If client is not yet initialized, just show the create character screen
                 self.uiManager.setCrearPJScreen();
                 self.uiManager.loginUI.setPlayButtonState(true);
-            });
+            }
         }
 
         tryStartingGame() {
@@ -141,5 +149,5 @@ define(['model/gamemanager', 'view/renderer', 'network/gameclient'], function (G
         }
 
     }
-    return App;
-});
+
+export default App;

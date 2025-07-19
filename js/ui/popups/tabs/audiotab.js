@@ -2,13 +2,15 @@
  * Created by horacio on 11/06/2016.
  */
 
-define([], function () {
+
+
+
 
     class AudioTab {
         constructor(game, settings) {
             this.game = game;
             this.settings = settings;
-            this.initCallbacks();
+            this._initialized = false;
         }
 
         onHide() {
@@ -19,6 +21,11 @@ define([], function () {
         }
 
         onShow() {
+            if (!this._initialized) {
+                this.initCallbacks();
+                this._initialized = true;
+            }
+            
             $("#sliderMusica").slider('value', this.settings.getMusicVolume() * 100);
             $("#sliderSonido").slider('value', this.settings.getSoundVolume() * 100);
 
@@ -61,5 +68,5 @@ define([], function () {
         }
 
     }
-    return AudioTab;
-});
+    
+export default AudioTab;

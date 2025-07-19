@@ -2,19 +2,19 @@
  * Created by horacio on 5/11/16.
  */
 
-define(["utils/palette"], function (Palette) {
+import Palette from './utils/palette.js';
 
-    var FONT_FAMILY = 'Myriad Pro, Arial';
+var FONT_FAMILY = 'Myriad Pro, Arial';
 
-    return {
+export default {
         NickColorIndex: {
             1: "CRIMINAL",
             2: "CIUDADANO",
         },
 
         NickColor: {
-            CRIMINAL: Palette.get('red'),
-            CIUDADANO: Palette.get('blue')
+            CRIMINAL: Palette.get('Red'),
+            CIUDADANO: Palette.get('Blue')
         },
 
         Index: {
@@ -67,7 +67,7 @@ define(["utils/palette"], function (Palette) {
             stroke: "black",
             strokeThickness: 2,
             align: 'center',
-            fill: Palette.get('white')
+            fill: Palette.get('Grey', '50')
         },
 
         HOVERING_BASE_FONT: {
@@ -84,19 +84,19 @@ define(["utils/palette"], function (Palette) {
             fontSize: '7',
             stroke: "black",
             strokeThickness: 0.2,
-            fill: Palette.get('yellow'),
+            fill: Palette.get('Yellow'),
         },
 
         CLAN_CHAT: {
-            fill: Palette.get('cyan', 'A200')
+            fill: Palette.get('Cyan', 'A200')
         },
 
         NOTIFICATION: {
-            fill: Palette.get('orange')
+            fill: Palette.get('Orange')
         },
 
         FIGHT: {
-            fill: Palette.get('red'),
+            fill: Palette.get('Red'),
             bold: 1
         },
         WARNING: {
@@ -106,16 +106,16 @@ define(["utils/palette"], function (Palette) {
         },
 
         INFO: {
-            fill: Palette.get('teal', '300')
+            fill: Palette.get('Teal', '300')
         },
 
         INFOBOLD: {
-            fill: Palette.get('teal', 'A400'),
+            fill: Palette.get('Teal', 'A400'),
             bold: 1
         },
 
         SKILLINFO: {
-            fill: Palette.get('yellow'),
+            fill: Palette.get('Yellow'),
         },
 
         EJECUCION: {
@@ -128,7 +128,7 @@ define(["utils/palette"], function (Palette) {
         },
 
         VENENO: {
-            fill: Palette.get('light green'),
+            fill: Palette.get('LightGreen'),
         },
 
         GUILD: {
@@ -165,7 +165,7 @@ define(["utils/palette"], function (Palette) {
         },
 
         CENTINELA: {
-            fill: Palette.get('green'),
+            fill: Palette.get('Green'),
             bold: 1
         },
 
@@ -180,7 +180,7 @@ define(["utils/palette"], function (Palette) {
         },
 
         CITIZEN: {
-            fill: Palette.get('blue'),
+            fill: Palette.get('Blue'),
             bold: 1
         },
 
@@ -211,4 +211,3 @@ define(["utils/palette"], function (Palette) {
             stroke: "rgb(50, 50, 255)"
         },
     };
-});

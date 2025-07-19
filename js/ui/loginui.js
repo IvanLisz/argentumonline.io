@@ -2,7 +2,9 @@
  * Created by horacio on 4/6/16.
  */
 
-define(['utils/charcodemap'], function (CharcodeMap) {
+import CharcodeMap from '../utils/charcodemap.js';
+
+
     class LoginUI {
         constructor(mensaje) {
             this.enableLoginPressingEnter();
@@ -51,5 +53,5 @@ define(['utils/charcodemap'], function (CharcodeMap) {
             return $('#loginNombre').val();
         }
     }
-    return LoginUI;
-});
+    
+export default LoginUI;

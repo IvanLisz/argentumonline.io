@@ -2,7 +2,11 @@
  * Created by horacio on 3/2/16.
  */
 
-define(['enums', 'lib/pixi', 'view/spritegrh'], function (Enums, PIXI, SpriteGrh) {
+import Enums from '../enums.js';
+import * as PIXI from 'pixi.js';
+import SpriteGrh from '../view/spritegrh.js';
+
+
 
     class CharacterSprites extends PIXI.Container {
         constructor() {
@@ -316,5 +320,5 @@ define(['enums', 'lib/pixi', 'view/spritegrh'], function (Enums, PIXI, SpriteGrh
         }
     }
 
-    return CharacterSprites;
-});
+    
+export default CharacterSprites;

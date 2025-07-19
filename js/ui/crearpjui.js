@@ -9,7 +9,11 @@ localStorage.setItem("clase", clase);
 const raza = localStorage.getItem("raza") || 0;
 localStorage.setItem("raza", raza);
 
-define(['enums', 'utils/util', 'ui/popups/crearpersonaje'], function (Enums, Utils, DialogCrearPersonaje) {
+import Enums from '../enums.js';
+import Utils from '../utils/util.js';
+import DialogCrearPersonaje from '../ui/popups/crearpersonaje.js';
+
+
     class CrearPjUI {
         constructor(assetManager, showMensajeCb) {
             this.assetManager = assetManager;
@@ -369,6 +373,5 @@ define(['enums', 'utils/util', 'ui/popups/crearpersonaje'], function (Enums, Uti
         }
     }
 
-    return CrearPjUI;
-});
-
+    
+export default CrearPjUI;

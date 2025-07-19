@@ -2,7 +2,9 @@
  * Created by horacio on 7/9/16.
  */
 
-define([], function () {
+
+
+
 
     class SettingsClan {
         constructor() {
@@ -22,5 +24,5 @@ define([], function () {
         }
     }
 
-    return SettingsClan;
-});
+    
+export default SettingsClan;

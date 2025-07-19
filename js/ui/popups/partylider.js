@@ -2,7 +2,11 @@
  * Created by horacio on 7/11/16.
  */
 
-define(["text!../../../menus/partyLider.html!strip", 'ui/popups/popup'], function (DOMdata, PopUp) {
+// Import HTML template as string (will be handled by Vite)
+import DOMdata from '../../../menus/partyLider.html?raw';
+import PopUp from '../../ui/popups/popup.js';
+
+
 
     class PartyLider extends PopUp {
         constructor(game, showMensajeCb) {
@@ -98,5 +102,5 @@ define(["text!../../../menus/partyLider.html!strip", 'ui/popups/popup'], functio
 
     }
 
-    return PartyLider;
-});
+    
+export default PartyLider;

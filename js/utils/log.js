@@ -45,3 +45,5 @@ Logger.prototype.error = function (message, stacktrace) {
 };
 
 var log = new Logger("debug");
+window.log = log;
+export default log;

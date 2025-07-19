@@ -2,8 +2,14 @@
  * Created by horacio on 8/21/16.
  */
 
-define(['enums', 'utils/util', 'lib/pixi', 'view/spritegrh', 'view/rendererutils'],
-    function (Enums, Utils, PIXI, SpriteGrh, RendererUtils) {
+import Enums from '../enums.js';
+import Utils from '../utils/util.js';
+import * as PIXI from 'pixi.js';
+import SpriteGrh from '../view/spritegrh.js';
+import RendererUtils from '../view/rendererutils.js';
+import _ from 'lodash';
+
+
 
         class MapaRenderer {
             constructor(camera, assetManager, layer1Container, layer2Container, layer3Container, layer4Container) {
@@ -292,5 +298,5 @@ define(['enums', 'utils/util', 'lib/pixi', 'view/spritegrh', 'view/rendererutils
             }
 
         }
-        return MapaRenderer;
-    });
+        
+export default MapaRenderer;

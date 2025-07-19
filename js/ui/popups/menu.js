@@ -2,7 +2,11 @@
  * Created by horacio on 07/08/2016.
  */
 
-define(["text!../../../menus/menu.html!strip", 'ui/popups/popup'], function (DOMdata, PopUp) {
+// Import HTML template as string (will be handled by Vite)
+import DOMdata from '../../../menus/menu.html?raw';
+import PopUp from '../../ui/popups/popup.js';
+
+
 
     class Menu extends PopUp {
         constructor(game, showMapaCb, showEstadisticasCb, showClanesCb, showOpcionesCb) {
@@ -20,7 +24,7 @@ define(["text!../../../menus/menu.html!strip", 'ui/popups/popup'], function (DOM
             this.showOpcionesCb = showOpcionesCb;
 
             this._lastClosedTime = 0;
-            this.initCallbacks();
+            this._callbacksInitialized = false;
         }
 
         hide(){
@@ -36,28 +40,34 @@ define(["text!../../../menus/menu.html!strip", 'ui/popups/popup'], function (DOM
                 }
             }
             super.show();
+            
+            // Initialize callbacks after dialog is created
+            if (!this._callbacksInitialized) {
+                this.initCallbacks();
+                this._callbacksInitialized = true;
+            }
         }
 
         initCallbacks() {
             var self = this;
 
-            $("#botonMapa1").click(function () {
+            this.$this.find("#botonMapa1").click(function () {
                 self.showMapaCb();
             });
 
-            $("#botonEstadisticas1").click(function () {
+            this.$this.find("#botonEstadisticas1").click(function () {
                 self.showEstadisticasCb();
             });
 
-            //$("#botonClanes1").click(function () {
+            //this.$this.find("#botonClanes1").click(function () {
             //    self.showClanesCb();
             //});
 
-            $("#botonParty1").click(function () {
+            this.$this.find("#botonParty1").click(function () {
                 self.game.client.sendRequestPartyForm();
             });
 
-            $("#botonOpciones1").click(function () {
+            this.$this.find("#botonOpciones1").click(function () {
                 self.showOpcionesCb();
             });
 
@@ -75,6 +85,5 @@ define(["text!../../../menus/menu.html!strip", 'ui/popups/popup'], function (DOM
         }
     }
 
-    return Menu;
-});
-
+    
+export default Menu;

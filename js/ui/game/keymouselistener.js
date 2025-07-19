@@ -2,7 +2,11 @@
  * Created by horacio on 4/6/16.
  **/
 
-define(['ui/game/keymouseinput', 'utils/charcodemap'], function (KeyMouseInput, CharcodeMap) {
+import KeyMouseInput from '../../ui/game/keymouseinput.js';
+import CharcodeMap from '../../utils/charcodemap.js';
+import _ from 'lodash';
+
+
     class KeyMouseListener {
 
         constructor(game, acciones, keys, comandosChat) {
@@ -269,5 +273,5 @@ define(['ui/game/keymouseinput', 'utils/charcodemap'], function (KeyMouseInput, 
 
     }
 
-    return KeyMouseListener;
-});
+    
+export default KeyMouseListener;

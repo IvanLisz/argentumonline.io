@@ -2,14 +2,32 @@
  * Created by horacio on 2/21/16.
  */
 
-define(['enums', 'ui/game/keymouselistener', 'ui/popups/popupskills', 'ui/popups/comerciar', 'ui/popups/ingamemensaje',
-        'ui/game/interfaz', 'ui/popups/tirar', 'ui/popups/boveda', 'ui/popups/guiamapa', 'ui/popups/opciones', 'ui/popups/carpinteria',
-        'ui/popups/herreria', 'ui/popups/clanes', 'ui/popups/detallesclan', 'ui/popups/solicitudclan', 'ui/popups/eleccionfaccionclan',
-        'ui/popups/crearclan', 'ui/popups/noticiasclan', 'ui/popups/detallespersonaje', 'ui/popups/estadisticas', 'ui/popups/partylider',
-        'ui/popups/partymiembro', 'ui/popups/playagain', 'ui/popups/menu'],
-    function (Enums, KeyMouseListener, popUpSkills, Comerciar, InGameMensaje, Interfaz, Tirar, Boveda, GuiaMapa, Opciones,
-              Carpinteria, Herreria, Clanes, DetallesClan, SolicitudClan, EleccionFaccionClan, CrearClan, NoticiasClan,
-              DetallesPersonaje, Estadisticas, PartyLider, PartyMiembro,PlayAgain, Menu) {
+import Enums from '../../enums.js';
+import KeyMouseListener from '../../ui/game/keymouselistener.js';
+import popUpSkills from '../../ui/popups/popupskills.js';
+import Comerciar from '../../ui/popups/comerciar.js';
+import InGameMensaje from '../../ui/popups/ingamemensaje.js';
+import Interfaz from '../../ui/game/interfaz.js';
+import Tirar from '../../ui/popups/tirar.js';
+import Boveda from '../../ui/popups/boveda.js';
+import GuiaMapa from '../../ui/popups/guiamapa.js';
+import Opciones from '../../ui/popups/opciones.js';
+import Carpinteria from '../../ui/popups/carpinteria.js';
+import Herreria from '../../ui/popups/herreria.js';
+import Clanes from '../../ui/popups/clanes.js';
+import DetallesClan from '../../ui/popups/detallesclan.js';
+import SolicitudClan from '../../ui/popups/solicitudclan.js';
+import EleccionFaccionClan from '../../ui/popups/eleccionfaccionclan.js';
+import CrearClan from '../../ui/popups/crearclan.js';
+import NoticiasClan from '../../ui/popups/noticiasclan.js';
+import DetallesPersonaje from '../../ui/popups/detallespersonaje.js';
+import Estadisticas from '../../ui/popups/estadisticas.js';
+import PartyLider from '../../ui/popups/partylider.js';
+import PartyMiembro from '../../ui/popups/partymiembro.js';
+import PlayAgain from '../../ui/popups/playagain.js';
+import Menu from '../../ui/popups/menu.js';
+
+
 
         class GameUI {
             constructor(gameManager, settings, playSonidoClickCb, setCrearPjScreenCallback) {
@@ -335,5 +353,5 @@ define(['enums', 'ui/game/keymouselistener', 'ui/popups/popupskills', 'ui/popups
             }
         }
 
-        return GameUI;
-    });
+        
+export default GameUI;

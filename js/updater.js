@@ -1,4 +1,6 @@
-define([], function () {
+
+
+
 
     class Updater {
         constructor(game) {
@@ -27,5 +29,5 @@ define([], function () {
 
     }
 
-    return Updater;
-});
+    
+export default Updater;

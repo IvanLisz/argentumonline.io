@@ -2,7 +2,12 @@
  * Created by horacio on 07/06/2016.
  */
 
-define(['enums', 'lib/pixi', 'font', 'view/textstyle'], function (Enums, PIXI, Font, TextStyle) {
+import Enums from '../enums.js';
+import * as PIXI from 'pixi.js';
+import Font from '../font.js';
+import TextStyle from '../view/textstyle.js';
+
+
 
     class CharacterName extends PIXI.Text {
         constructor(nombre, clan, font, escala) {
@@ -34,5 +39,5 @@ define(['enums', 'lib/pixi', 'font', 'view/textstyle'], function (Enums, PIXI, F
 
     }
 
-    return CharacterName;
-});
+    
+export default CharacterName;

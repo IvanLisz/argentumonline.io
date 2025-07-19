@@ -2,7 +2,11 @@
  * Created by horacio on 4/9/16.
  */
 
-define(['enums', 'font', 'model/macros'], function (Enums, Font, Macros) {
+import Enums from '../enums.js';
+import Font from '../font.js';
+import Macros from '../model/macros.js';
+
+
 
     class Acciones {
         constructor(game, intervalos) {
@@ -277,5 +281,5 @@ define(['enums', 'font', 'model/macros'], function (Enums, Font, Macros) {
         }
     }
 
-    return Acciones;
-});
+    
+export default Acciones;

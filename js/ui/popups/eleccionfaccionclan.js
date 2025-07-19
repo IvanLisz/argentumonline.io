@@ -2,7 +2,12 @@
  * Created by horacio on 7/7/16.
  */
 
-define(["text!../../../menus/eleccionFaccionClan.html!strip", 'enums','ui/popups/popup'], function (DOMdata, Enums, PopUp) {
+// Import HTML template as string (will be handled by Vite)
+import DOMdata from '../../../menus/eleccionFaccionClan.html?raw';
+import Enums from '../../enums.js';
+import PopUp from '../../ui/popups/popup.js';
+
+
 
     class EleccionFaccionClan extends PopUp {
         constructor(game) {
@@ -48,5 +53,5 @@ define(["text!../../../menus/eleccionFaccionClan.html!strip", 'enums','ui/popups
         }
     }
 
-    return EleccionFaccionClan;
-});
+    
+export default EleccionFaccionClan;

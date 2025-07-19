@@ -3,7 +3,10 @@
  */
 
 
-define(['enums', 'utils/charcodemap'], function (Enums, CharcodeMap) {
+import Enums from '../../enums.js';
+import CharcodeMap from '../../utils/charcodemap.js';
+
+
     class KeyMouseInput {
         constructor(game, acciones) {
             this.acciones = acciones;
@@ -152,5 +155,5 @@ define(['enums', 'utils/charcodemap'], function (Enums, CharcodeMap) {
         }
     }
 
-    return KeyMouseInput;
-});
+    
+export default KeyMouseInput;

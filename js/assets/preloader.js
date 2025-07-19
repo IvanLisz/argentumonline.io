@@ -2,13 +2,15 @@
  * Created by horacio on 3/22/16.
  */
 
-define(['lib/pixi', 'json!../../preload_config/preload_sounds.json','json!../../preload_config/preload_graficos.json'],
-    function (PIXI, PreloadSounds, PreloadGraficos) {
+import * as PIXI from 'pixi.js';
+import PreloadSounds from '../../preload_config/preload_sounds.json';
+import PreloadGraficos from '../../preload_config/preload_graficos.json';
+
+
 
         class Preloader {
             constructor(assetManager) {
                 this.assetManager = assetManager;
-                this.loader = PIXI.loader;
             }
 
             _preloadSoundsAsync(){
@@ -18,7 +20,7 @@ define(['lib/pixi', 'json!../../preload_config/preload_sounds.json','json!../../
             }
 
 
-            preload(terminar_callback, progress_callback) {
+            async preload(terminar_callback, progress_callback) {
 
                 // fonts: // OJO: si se usan web fonts sacar esto y el script del index
                 WebFont.load({
@@ -34,29 +36,49 @@ define(['lib/pixi', 'json!../../preload_config/preload_sounds.json','json!../../
                 // graficos:
 
                 let self = this;
-                let loader = this.loader;
-
-                loader.add("indices", "indices/graficos.json");
-
+                
+                // Add all assets to load
+                const assetsToLoad = [];
+                
+                // Add indices
+                assetsToLoad.push({ alias: "indices", src: "indices/graficos.json" });
+                
+                // Add graphics
                 for (let grafico of PreloadGraficos) {
-                    loader.add("" + grafico, "graficos/" + grafico + ".png");
+                    assetsToLoad.push({ alias: grafico.toString(), src: "graficos/" + grafico + ".png" });
                 }
-
-                loader.on('progress', function (loader, loadedResource) {
-                    progress_callback(loader.progress);
-                });
-
-                loader.load(function (loader, resources) {
-                    for (let grafico of PreloadGraficos){
-                        self.assetManager._setBaseTexture(grafico,PIXI.loader.resources[grafico].texture.baseTexture);
+                
+                // Add all assets to PIXI Assets system
+                PIXI.Assets.add(assetsToLoad);
+                
+                // Track progress
+                let loadedCount = 0;
+                const totalCount = assetsToLoad.length;
+                
+                // Load all assets
+                try {
+                    // Load indices first
+                    const indicesData = await PIXI.Assets.load("indices");
+                    self.assetManager.indices = indicesData;
+                    loadedCount++;
+                    progress_callback((loadedCount / totalCount) * 100);
+                    
+                    // Load all graphics
+                    for (let grafico of PreloadGraficos) {
+                        const texture = await PIXI.Assets.load(grafico.toString());
+                        self.assetManager._setBaseTexture(grafico, texture.baseTexture);
+                        loadedCount++;
+                        progress_callback((loadedCount / totalCount) * 100);
                     }
-                    self.assetManager.indices = resources.indices.data;
+                    
                     terminar_callback();
-                });
+                } catch (error) {
+                    console.error('Error loading assets:', error);
+                }
             }
 
 
         }
 
-        return Preloader;
-    });
+        
+export default Preloader;

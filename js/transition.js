@@ -1,6 +1,4 @@
-define(function () {
-
-    class Transition {
+class Transition {
         constructor() {
             this.startValue = 0;
             this.endValue = 0;
@@ -44,5 +42,5 @@ define(function () {
             this.inProgress = false;
         }
     }
-    return Transition;
-});
+
+export default Transition;

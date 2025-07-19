@@ -2,13 +2,13 @@
  * Created by horacio on 4/11/16.
  */
 
-define(["utils/charcodemap"], function (CharCodeMap) {
+import CharCodeMap from '../utils/charcodemap.js';
 
-    function getKeyNumber(name) {
-        return CharCodeMap.keys.indexOf(name);
-    }
+function getKeyNumber(name) {
+    return CharCodeMap.keys.indexOf(name);
+}
 
-    return {
+export default {
         keys: {
             chat: getKeyNumber("ENTER"),
             chatClan: getKeyNumber("DELETE"),
@@ -39,4 +39,3 @@ define(["utils/charcodemap"], function (CharCodeMap) {
             musicVolume: 1.0
         }
     };
-});

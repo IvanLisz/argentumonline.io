@@ -2,7 +2,9 @@
  * Created by horacio on 2/21/16.
  */
 
-define(['jquery-ui'], function () {
+// jQuery UI should be loaded globally
+
+
 
     class ItemGrid {
         constructor(gridID, cantidadSlots, dragAndDropable) {
@@ -163,5 +165,5 @@ define(['jquery-ui'], function () {
         }
     }
 
-    return ItemGrid;
-});
+    
+export default ItemGrid;

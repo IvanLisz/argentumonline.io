@@ -1,7 +1,19 @@
-define(['model/mapa', 'updater', 'model/item', 'model/character', 'model/atributos', 'model/inventario', 'model/skills',
-        'model/playerstate', 'model/playermovement', 'enums', 'model/world', 'model/worldstate', 'model/gametext', 'lib/pixi'],
-    function (Mapa, Updater, Item, Character, Atributos, Inventario, Skills, PlayerState, PlayerMovement, Enums, World, WorldState,
-              GameText, PIXI) {
+import Mapa from '../model/mapa.js';
+import Updater from '../updater.js';
+import Item from '../model/item.js';
+import Character from '../model/character.js';
+import Atributos from '../model/atributos.js';
+import Inventario from '../model/inventario.js';
+import Skills from '../model/skills.js';
+import PlayerState from '../model/playerstate.js';
+import PlayerMovement from '../model/playermovement.js';
+import Enums from '../enums.js';
+import World from '../model/world.js';
+import WorldState from '../model/worldstate.js';
+import GameText from '../model/gametext.js';
+import * as PIXI from 'pixi.js';
+
+
         class Game {
             constructor(assetManager) {
                 this.POSICIONES_EXTRA_SONIDO = {norte: 0, sur: 0, este: 1, oeste: 1};
@@ -538,8 +550,8 @@ define(['model/mapa', 'updater', 'model/item', 'model/character', 'model/atribut
             }
 
             initGameTick() {
-                PIXI.ticker.shared.remove(this._gameTick, this);
-                PIXI.ticker.shared.add(this._gameTick, this);
+                PIXI.Ticker.shared.remove(this._gameTick, this);
+                PIXI.Ticker.shared.add(this._gameTick, this);
             }
 
             _gameTick(delta) {
@@ -609,5 +621,5 @@ define(['model/mapa', 'updater', 'model/item', 'model/character', 'model/atribut
 
         }
 
-        return Game;
-    });
+        
+export default Game;

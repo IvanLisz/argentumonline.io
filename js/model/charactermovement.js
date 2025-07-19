@@ -2,7 +2,11 @@
  * Created by horacio on 8/22/16.
  */
 
-define(['transition', 'lib/pixi', 'enums'], function (Transition, PIXI, Enums) {
+import Transition from '../transition.js';
+import * as PIXI from 'pixi.js';
+import Enums from '../enums.js';
+
+
 
     class CharacterMovement {
 
@@ -147,5 +151,5 @@ define(['transition', 'lib/pixi', 'enums'], function (Transition, PIXI, Enums) {
 
     }
 
-    return CharacterMovement;
-});
+    
+export default CharacterMovement;

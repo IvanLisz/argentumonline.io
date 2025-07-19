@@ -2,7 +2,9 @@
  * Created by horacio on 3/27/16.
  */
 
-define(['jquery-ui'], function () {
+import $ from 'jquery';
+
+
 
     class PopUp {
         constructor(DOMdata, addiotionalOptions, general, modal) { // los pop ups generales se ven en todas las pantallas (no solo juego) y estan centrados en el medio
@@ -36,14 +38,54 @@ define(['jquery-ui'], function () {
                 $.extend(this.options, position);
             }
 
-            this._createDom();
-
+            // Defer dialog creation to ensure DOM and CSS are ready
+            this._dialogCreated = false;
             this.visible = false;
         }
 
         _createDom() {
-            this.$this.dialog(this.options).parent().draggable("option", "containment", this.parentID);
-            this._checkDuplicate();
+            // If DOMdata was a string, append it to body first
+            if (this.$this.parent().length === 0) {
+                this.$this.appendTo('body').hide();
+            }
+            
+            // Check if jQuery UI dialog is available
+            if (typeof $.fn.dialog === 'undefined') {
+                console.error('jQuery UI dialog is not loaded');
+                return;
+            }
+            
+            try {
+                this.$this.dialog(this.options);
+                if (this.$this.parent('.ui-dialog').length > 0) {
+                    this.$this.parent().draggable("option", "containment", this.parentID);
+                    // Ensure dialog has proper classes
+                    this._ensureDialogClasses();
+                }
+                this._checkDuplicate();
+            } catch (e) {
+                console.error('Error creating dialog:', e);
+            }
+        }
+
+        _ensureDialogClasses() {
+            const $dialog = this.$this.parent('.ui-dialog');
+            const $titlebar = $dialog.find('.ui-dialog-titlebar');
+            const $closeButton = $titlebar.find('.ui-dialog-titlebar-close');
+            
+            // Add background and border classes
+            $dialog.addClass('exterior_border_default background_default');
+            
+            // Style titlebar with background and border
+            $titlebar.addClass('headingFont heading_border_default');
+            
+            // Style close button
+            $closeButton.addClass('defaults_boton');
+            
+            // Hide the default jQuery UI close icon
+            $closeButton.find('.ui-icon').css('display', 'none');
+            $closeButton.find('.ui-button-icon-space').css('display', 'none');
+            $closeButton.text(''); // Remove any text
         }
 
         _checkDuplicate() {
@@ -83,13 +125,20 @@ define(['jquery-ui'], function () {
         }
 
         show() {
+            // Create dialog on first show to ensure everything is loaded
+            if (!this._dialogCreated) {
+                this._createDom();
+                this._dialogCreated = true;
+            }
             this.clearDom();
             this.$this.dialog("open");
             this.visible = true;
         }
 
         hide() { // OJO, en algunos se cierra con el comando que viene del server (y se puede cerrar 2 veces)
-            this.$this.dialog("close");
+            if (this._dialogCreated) {
+                this.$this.dialog("close");
+            }
             this.visible = false;
         }
 
@@ -100,5 +149,5 @@ define(['jquery-ui'], function () {
         }
 
     }
-    return PopUp;
-});
+    
+export default PopUp;

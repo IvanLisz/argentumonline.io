@@ -2,7 +2,9 @@
  * Created by horacio on 7/7/16.
  */
 
-define([], function () {
+
+
+
 
     class SolicitudesClan {
         constructor(game, showMensajeCb) {
@@ -64,5 +66,5 @@ define([], function () {
         }
     }
 
-    return SolicitudesClan;
-});
+    
+export default SolicitudesClan;

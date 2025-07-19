@@ -2,7 +2,10 @@
  * Created by horacio on 2/28/16.
  */
 
-define(['utils/charcodemap', 'ui/game/itemgrid'], function (CharCodeMap, ItemGrid) {
+import CharCodeMap from '../../utils/charcodemap.js';
+import ItemGrid from '../../ui/game/itemgrid.js';
+
+
 
     class Interfaz {
         constructor(game, acciones) {
@@ -253,5 +256,5 @@ define(['utils/charcodemap', 'ui/game/itemgrid'], function (CharCodeMap, ItemGri
 
     }
 
-    return Interfaz;
-});
+    
+export default Interfaz;

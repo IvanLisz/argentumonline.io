@@ -2,7 +2,12 @@
  * Created by horacio on 3/21/16.
  */
 
-define(["text!../../../menus/tirar.html!strip", 'ui/popups/popup', 'ui/popups/popup'], function (DOMdata, PopUp) {
+// Import HTML template as string (will be handled by Vite)
+import DOMdata from '../../../menus/tirar.html?raw';
+import PopUp from '../../ui/popups/popup.js';
+import '../../ui/popups/popup.js';
+
+
 
     class Tirar extends PopUp {
         constructor(game, acciones) {
@@ -50,5 +55,5 @@ define(["text!../../../menus/tirar.html!strip", 'ui/popups/popup', 'ui/popups/po
         }
     }
 
-    return Tirar;
-});
+    
+export default Tirar;

@@ -2,7 +2,11 @@
  * Created by horacio on 6/20/16.
  */
 
-define(["text!../../../menus/herreria.html!strip", 'ui/popups/popup'], function (DOMdata, PopUp) {
+// Import HTML template as string (will be handled by Vite)
+import DOMdata from '../../../menus/herreria.html?raw';
+import PopUp from '../../ui/popups/popup.js';
+
+
 
     class Herreria extends PopUp {
         constructor(game) {
@@ -94,6 +98,5 @@ define(["text!../../../menus/herreria.html!strip", 'ui/popups/popup'], function 
         }
     }
 
-    return Herreria;
-});
-
+    
+export default Herreria;

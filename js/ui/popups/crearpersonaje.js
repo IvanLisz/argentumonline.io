@@ -2,7 +2,11 @@
  * Created by horacio on 09/08/2016.
  */
 
-define(["text!../../../menus/crearPersonaje.html!strip", 'ui/popups/popup'], function (DOMdata, PopUp) {
+// Import HTML template as string (will be handled by Vite)
+import DOMdata from '../../../menus/crearPersonaje.html?raw';
+import PopUp from '../../ui/popups/popup.js';
+
+
 
     class CrearPersonaje extends PopUp {
         constructor(showMensajeCb) {
@@ -79,6 +83,5 @@ define(["text!../../../menus/crearPersonaje.html!strip", 'ui/popups/popup'], fun
         }
     }
 
-    return CrearPersonaje;
-});
-
+    
+export default CrearPersonaje;

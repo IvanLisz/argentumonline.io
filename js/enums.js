@@ -1,14 +1,13 @@
-define({
-    /* valor default primer elemento enums en VB: 0 */
+/* valor default primer elemento enums en VB: 0 */
 
-    Heading: {
+export const Heading = {
         norte: 1,
         este: 2,
         sur: 3,
         oeste: 4
-    },
+};
 
-    eMessage: {
+export const eMessage = {
         DontSeeAnything: 0,
         NPCSwing: 1,
         NPCKillUser: 2,
@@ -33,33 +32,33 @@ define({
         Home: 21,
         CancelHome: 22,
         FinishHome: 23
-    },
+};
 
-    Ciudad: {
+export const Ciudad = {
         Ullathorpe: 1,
         Nix: 2,
         Banderbill: 3,
         Lindos: 4,
         Arghal: 5
-    },
+};
 
-    Raza: {
+export const Raza = {
         humano: 1,
         elfo: 2,
         elfoOscuro: 3,
         gnomo: 4,
         enano: 5
-    },
+};
 
-    NombreRaza: {
+export const NombreRaza = {
         1: "Humano",
         2: "Elfo",
         3: "Elfo Oscuro",
         4: "Gnomo",
         5: "Enano"
-    },
+};
 
-    Clase: {
+export const Clase = {
         mago: 1,
         clerigo: 2,
         guerrero: 3,
@@ -71,10 +70,10 @@ define({
         paladin: 9,
         cazador: 10,
         pirata: 11,
-    },
+};
 
 
-    NombreClase: {
+export const NombreClase = {
         1: "Mago",
         2: "Clérigo",
         3: "Guerrero",
@@ -86,23 +85,23 @@ define({
         9: "Paladín",
         10: "Cazador",
         11: "Pirata"
-    },
+};
 
-    Genero: {
+export const Genero = {
         hombre: 1,
         mujer: 2
-    },
+};
 
-    ParteCuerpo: {
+export const ParteCuerpo = {
         cabeza: 1,
         piernaIzquierda: 2,
         piernaDerecha: 3,
         brazoDerecho: 4,
         brazoIzquierdo: 5,
         torso: 6
-    },
+};
 
-    Skill: {
+export const Skill = {
         magia: 1,
         robar: 2,
         tacticas: 3,
@@ -124,14 +123,14 @@ define({
         wrestling: 19,
         navegacion: 20,
         fundirmetal: 88
-    },
+};
 
-    Muerto: {
+export const Muerto = {
         cabezaCasper: 500,
         cuerpoFragataFantasmal: 87
-    },
+};
 
-    MensajeConsola: {
+export const MensajeConsola = {
         ESTAS_MUERTO: "¡¡¡Estás muerto!!!",
         MENSAJE_1: "¡¡",
         MENSAJE_2: "!!",
@@ -199,9 +198,9 @@ define({
         MACRO_HECHIZOS_REQUIRE_SELECCIONAR: "Necesitas seleccionar que hechizo lanzar",
         MENSAJE_HOGAR : "Has llegado a tu hogar. El viaje ha finalizado.",
         MENSAJE_HOGAR_CANCEL : "Tu viaje ha sido cancelado."
-    },
+};
 
-    Intervalo: {
+export const Intervalo = {
         macroHechizos: 2788,
         macroTrabajo: 900,
         ataque: 900,
@@ -215,9 +214,9 @@ define({
         requestPostionUpdate: 2000,
         domar: 700,
         robar: 700
-    },
+};
 
-    SONIDOS: {
+export const SONIDOS = {
         paso1: "23",
         paso2: "24",
         pasoNavegando: "50",
@@ -231,14 +230,33 @@ define({
         retirar_depositar: 'withdraw_deposit_item',
         click: 'click',
         dados: 'cupdice'
-    },
+};
 
-    ClanType: {
+export const ClanType = {
         ROYAL_ARMY: 0,
         EVIL: 1,
         NEUTRAL: 2,
         GM: 3,
         LEGAL: 4,
         CRIMINAL: 5
-    }
-});
+};
+
+// Export all enums as default object
+// Only export the enums that are actually defined
+export default {
+        Heading,
+        eMessage,
+        Ciudad,
+        MensajeConsola,
+        Raza,
+        NombreRaza,
+        Clase,
+        NombreClase,
+        Genero,
+        ParteCuerpo,
+        Skill,
+        Muerto,
+        Intervalo,
+        SONIDOS,
+        ClanType
+};

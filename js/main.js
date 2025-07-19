@@ -1,38 +1,45 @@
 
-define(['app', 'assets/assetmanager', 'ui/uimanager', 'storage/settings', 'lib/lodash', 'lib/stacktrace', 'utils/log', 'detect'], function (App, AssetManager, UIManager, Settings, __globals__) {
-    var app, uiManager, assetManager, settings;
+import $ from 'jquery';
+import App from './app.js';
+import AssetManager from './assets/assetmanager.js';
+import UIManager from './ui/uimanager.js';
+import Settings from './storage/settings.js';
+import _ from 'lodash';
+import './lib/stacktrace.js';
+import './utils/log.js';
+import './detect.js';
 
-    function setupAudio(audio, settings) {
-        audio.setSoundMuted(settings.getSoundMuted());
-        audio.setMusicMuted(settings.getMusicMuted());
-        audio.setMusicVolume(settings.getMusicVolume());
-        audio.setSoundVolume(settings.getSoundVolume());
-        audio.setMusic("intro");
-    }
+var app, uiManager, assetManager, settings;
 
-    var initApp = function () {
-        $(document).ready(function () {
+function setupAudio(audio, settings) {
+    audio.setSoundMuted(settings.getSoundMuted());
+    audio.setMusicMuted(settings.getMusicMuted());
+    audio.setMusicVolume(settings.getMusicVolume());
+    audio.setSoundVolume(settings.getSoundVolume());
+    audio.setMusic("intro");
+}
 
-            settings = new Settings();
-            assetManager = new AssetManager();
-            setupAudio(assetManager.audio, settings);
+var initApp = function () {
+    $(document).ready(function () {
 
-            uiManager = new UIManager(assetManager);
-            app = new App(assetManager, uiManager, settings);
-            uiManager.initDOM();
+        settings = new Settings();
+        assetManager = new AssetManager();
+        setupAudio(assetManager.audio, settings);
 
-            assetManager.preload(
-                () => {
-                    setTimeout(function () {
-                        app.start();
-                    }, 800);
-                },
-                (porcentajeCargado) => {
-                    uiManager.introUI.updateLoadingBar(porcentajeCargado);
-                });
-        });
-    };
+        uiManager = new UIManager(assetManager);
+        app = new App(assetManager, uiManager, settings);
+        uiManager.initDOM();
 
-    initApp();
+        assetManager.preload(
+            () => {
+                setTimeout(function () {
+                    app.start();
+                }, 800);
+            },
+            (porcentajeCargado) => {
+                uiManager.introUI.updateLoadingBar(porcentajeCargado);
+            });
+    });
+};
 
-});
+initApp();

@@ -2,10 +2,14 @@
  * Created by horacio on 3/8/16.
  */
 
-define(['font', 'lib/pixi', 'view/rendererutils', 'view/textstyle'], function (Font, PIXI, rendererUtils, TextStyle) {
+import Font from '../font.js';
+import * as PIXI from 'pixi.js';
+import rendererUtils from '../view/rendererutils.js';
+import TextStyle from '../view/textstyle.js';
 
-    function Consola(escala) {
-        PIXI.Container.call(this);
+class Consola extends PIXI.Container {
+    constructor(escala) {
+        super();
         
         this.DURACION_TEXTO = 5000;
         this.CANT_LINEAS = 7;
@@ -17,18 +21,15 @@ define(['font', 'lib/pixi', 'view/rendererutils', 'view/textstyle'], function (F
         this._elapsedTime = 0;
     }
 
-    Consola.prototype = Object.create(PIXI.Container.prototype);
-    Consola.constructor = Consola;
-
-    Consola.prototype.setEscala = function (escala) {
+    setEscala(escala) {
         for (var i = 0; i < this.children.length; i++) {
             this.children[i].style.setEscala(escala);
             this.children[i].y = this.children[0].height * i;
         }
         this._escala = escala;
-    };
+    }
 
-    Consola.prototype.update = function (delta) {
+    update(delta) {
         this._elapsedTime += delta;
 
         //solo checkeo primer item porque fue el primero en aparecer
@@ -39,10 +40,9 @@ define(['font', 'lib/pixi', 'view/rendererutils', 'view/textstyle'], function (F
         if (texto.tiempoInicial + this.DURACION_TEXTO < this._elapsedTime) {
             this._removerTexto(texto);
         }
-    };
+    }
 
-
-    Consola.prototype._removerTexto = function (spriteTexto) {
+    _removerTexto(spriteTexto) {
         for (var i = 0; i < this.children.length; i++) {
             this.children[i].y -= spriteTexto.height;
             // aumento el tiempo restante de los que tienen poco asi no se van todos de una
@@ -52,9 +52,9 @@ define(['font', 'lib/pixi', 'view/rendererutils', 'view/textstyle'], function (F
             }
         }
         rendererUtils.removePixiChild(this,spriteTexto);
-    };
+    }
 
-    Consola.prototype.agregarTexto = function (texto, font) {
+    agregarTexto(texto, font) {
         let estilo = new TextStyle(Font.CONSOLA_BASE_FONT,this._escala,font);
         let nuevoTexto = new PIXI.Text(texto, estilo);
 
@@ -69,7 +69,7 @@ define(['font', 'lib/pixi', 'view/rendererutils', 'view/textstyle'], function (F
         nuevoTexto.tiempoInicial = this._elapsedTime;
 
         this.addChild(nuevoTexto);
-    };
+    }
+}
 
-    return Consola;
-});
+export default Consola;

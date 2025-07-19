@@ -2,8 +2,14 @@
  * Created by horacio on 5/2/16.
  */
 
-define(["text!../../../menus/opciones.html!strip", 'ui/popups/popup', 'ui/popups/tabs/configurarteclas', 'ui/popups/tabs/audiotab', 'lib/screenfull'],
-    function (DOMdata, PopUp, ConfigurarTeclasTab, AudioTab, Screenfull) {
+// Import HTML template as string (will be handled by Vite)
+import DOMdata from '../../../menus/opciones.html?raw';
+import PopUp from '../../ui/popups/popup.js';
+import ConfigurarTeclasTab from '../../ui/popups/tabs/configurarteclas.js';
+import AudioTab from '../../ui/popups/tabs/audiotab.js';
+import Screenfull from 'screenfull';
+
+
 
     class Opciones extends PopUp {
         constructor(game, storage, updateKeysCallback, showMensajeCallback) {
@@ -16,8 +22,7 @@ define(["text!../../../menus/opciones.html!strip", 'ui/popups/popup', 'ui/popups
             super(DOMdata, options);
             this.configurarTeclasTab = new ConfigurarTeclasTab(storage, updateKeysCallback, showMensajeCallback);
             this.audioTab = new AudioTab(game, storage);
-            this.initCallbacks();
-            this._initFullScreenListener();
+            this._callbacksInitialized = false;
             var self = this;
             this.configurarTeclasTab.setCerrarCallback(function () {
                 self.hide();
@@ -26,6 +31,13 @@ define(["text!../../../menus/opciones.html!strip", 'ui/popups/popup', 'ui/popups
 
         show() {
             super.show();
+            
+            if (!this._callbacksInitialized) {
+                this.initCallbacks();
+                this._initFullScreenListener();
+                this._callbacksInitialized = true;
+            }
+            
             this.audioTab.onShow();
             this.configurarTeclasTab.onShow();
         }
@@ -67,5 +79,5 @@ define(["text!../../../menus/opciones.html!strip", 'ui/popups/popup', 'ui/popups
 
     }
 
-    return Opciones;
-});
+    
+export default Opciones;

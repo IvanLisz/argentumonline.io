@@ -2,7 +2,9 @@
  * Created by horacio on 7/3/16.
  */
 
-define([], function () {
+
+
+
 
     class PlayerState {
         constructor() {
@@ -13,5 +15,5 @@ define([], function () {
         }
     }
 
-    return PlayerState;
-});
+    
+export default PlayerState;

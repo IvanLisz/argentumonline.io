@@ -2,12 +2,14 @@
  * Created by horacio on 3/10/16.
  */
 
-define(['lib/pixi'], function (PIXI) {
+import * as PIXI from 'pixi.js';
 
-    class SpriteGrh extends PIXI.extras.MovieClip {
+
+
+    class SpriteGrh extends PIXI.AnimatedSprite {
         constructor(grh, cantLoops) {
             let nullFrames = [];
-            nullFrames[0] = {texture: null};
+            nullFrames[0] = PIXI.Texture.EMPTY;
             super(nullFrames);
 
             cantLoops = cantLoops || 0;
@@ -133,5 +135,5 @@ define(['lib/pixi'], function (PIXI) {
         }
     }
 
-    return SpriteGrh;
-});
+    
+export default SpriteGrh;

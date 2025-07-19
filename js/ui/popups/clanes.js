@@ -2,9 +2,15 @@
  * Created by horacio on 6/16/16.
  */
 
-define(["text!../../../menus/clanes.html!strip", 'ui/popups/popup', 'ui/popups/tabs/clanesSearch',
-    'ui/popups/tabs/miembrosclan','ui/popups/tabs/solicitudesclan','ui/popups/tabs/settingsclan'],
-    function (DOMdata, PopUp, ClanesSearchTab, MiembrosClanTab, SolicitudesClanTab, SettingsClanTab) {
+// Import HTML template as string (will be handled by Vite)
+import DOMdata from '../../../menus/clanes.html?raw';
+import PopUp from '../../ui/popups/popup.js';
+import ClanesSearchTab from '../../ui/popups/tabs/clanesSearch.js';
+import MiembrosClanTab from '../../ui/popups/tabs/miembrosclan.js';
+import SolicitudesClanTab from '../../ui/popups/tabs/solicitudesclan.js';
+import SettingsClanTab from '../../ui/popups/tabs/settingsclan.js';
+
+
 
     class Clanes extends PopUp {
 
@@ -80,5 +86,5 @@ define(["text!../../../menus/clanes.html!strip", 'ui/popups/popup', 'ui/popups/t
         }
     }
 
-    return Clanes;
-});
+    
+export default Clanes;

@@ -1,7 +1,15 @@
-define(['enums', 'lib/pixi', 'view/camera', 'view/consola', 'view/containerordenado', 'view/indicadormapa',
-        'view/entityrenderer', 'view/climarenderer', 'view/maparenderer','view/rendererutils'],
-    function (Enums, PIXI, Camera, Consola, ContainerOrdenado, IndicadorMapa, EntityRenderer, ClimaRenderer,
-              MapaRenderer, RendererUtils) {
+import Enums from '../enums.js';
+import * as PIXI from 'pixi.js';
+import Camera from '../view/camera.js';
+import Consola from '../view/consola.js';
+import ContainerOrdenado from '../view/containerordenado.js';
+import IndicadorMapa from '../view/indicadormapa.js';
+import EntityRenderer from '../view/entityrenderer.js';
+import ClimaRenderer from '../view/climarenderer.js';
+import MapaRenderer from '../view/maparenderer.js';
+import RendererUtils from '../view/rendererutils.js';
+
+
 
         class Renderer {
             constructor(assetManager, escala) {
@@ -28,11 +36,15 @@ define(['enums', 'lib/pixi', 'view/camera', 'view/consola', 'view/containerorden
             }
 
             _inicializarPixi() {
-                PIXI.SCALE_MODES.DEFAULT = PIXI.SCALE_MODES.NEAREST;
-                PIXI.MIPMAP_TEXTURES = false;
-                PIXI.GC_MODES.DEFAULT = PIXI.GC_MODES.MANUAL;
+                // In PIXI v7.1+, use the new API
+                PIXI.BaseTexture.defaultOptions.scaleMode = PIXI.SCALE_MODES.NEAREST;
+                PIXI.BaseTexture.defaultOptions.mipmap = PIXI.MIPMAP_MODES.OFF;
+                PIXI.TextureGCSystem.defaultMode = PIXI.GC_MODES.MANUAL;
 
-                this.pixiRenderer = new PIXI.autoDetectRenderer(this.camera.gridW * this.tilesize, this.camera.gridH * this.tilesize);
+                this.pixiRenderer = new PIXI.Renderer({
+                    width: this.camera.gridW * this.tilesize,
+                    height: this.camera.gridH * this.tilesize
+                });
                 $(this.pixiRenderer.view).css('position', 'relative');
                 $(this.pixiRenderer.view).css('display', 'block');
                 $("#gamecanvas").append(this.pixiRenderer.view);
@@ -243,5 +255,5 @@ define(['enums', 'lib/pixi', 'view/camera', 'view/consola', 'view/containerorden
 
 
         }
-        return Renderer;
-    });
+        
+export default Renderer;

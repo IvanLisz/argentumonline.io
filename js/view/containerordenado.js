@@ -2,42 +2,38 @@
  * Created by horacio on 3/14/16.
  */
 
-define(['lib/pixi'], function (PIXI) {
+import * as PIXI from 'pixi.js';
 
-    function ContainerOrdenado(mapWidth) {
-        PIXI.Container.call(this);
+class ContainerOrdenado extends PIXI.Container {
+    constructor(mapWidth) {
+        super();
         this._mapWidth = mapWidth;
-
     }
 
-    ContainerOrdenado.prototype = Object.create(PIXI.Container.prototype);
-    ContainerOrdenado.constructor = ContainerOrdenado;
-
-    ContainerOrdenado.prototype.addChild = function (spriteGrh) {
-        var self = this;
+    addChild(spriteGrh) {
+        const self = this;
         spriteGrh.setGridPositionChangeCallback(function () {
             self._ordenarChild(this);
         });
-        PIXI.Container.prototype.addChild.call(this, spriteGrh);
+        super.addChild(spriteGrh);
         //this._ordenarChild(spriteGrh);
-    };
+    }
 
-    ContainerOrdenado.prototype._ordenarChild = function (hijo) {
-        var gridX = Math.round(hijo.x / 32);
-        var gridY = Math.round(hijo.y / 32);
+    _ordenarChild(hijo) {
+        const gridX = Math.round(hijo.x / 32);
+        const gridY = Math.round(hijo.y / 32);
         hijo.zIndex = gridY * (this._mapWidth + 1) + ((this._mapWidth + 1) - gridX) + (hijo.zOffset || 0);
 
         this._reordenarTodo();
-    };
+    }
 
-    ContainerOrdenado.prototype._reordenarTodo = function () { // TODO: no ordenar cada vez, sino insertar con una busqueda binaria
-
+    _reordenarTodo() { // TODO: no ordenar cada vez, sino insertar con una busqueda binaria
         this.children.sort(function (a, b) {
             a.zIndex = a.zIndex || 0;
             b.zIndex = b.zIndex || 0;
             return a.zIndex - b.zIndex;
         });
-    };
+    }
+}
 
-    return ContainerOrdenado;
-});
+export default ContainerOrdenado;

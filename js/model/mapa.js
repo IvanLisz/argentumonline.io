@@ -1,4 +1,6 @@
-define([], function () {
+
+
+
     class Mapa {
         constructor(numMap) {
             this.numero = numMap;
@@ -113,5 +115,5 @@ define([], function () {
         }
     }
 
-    return Mapa;
-});
+    
+export default Mapa;

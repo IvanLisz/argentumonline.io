@@ -1,4 +1,6 @@
-define(['model/entity'], function (Entity) {
+import Entity from '../model/entity.js';
+
+
 
     class Item extends Entity {
         constructor(gridX, gridY) {
@@ -7,6 +9,5 @@ define(['model/entity'], function (Entity) {
         }
 
     }
-    return Item;
-
-});
+    
+export default Item;

@@ -2,7 +2,9 @@
  * Created by horacio on 7/6/16.
  */
 
-define(['../../utils/searchinputfilter'], function (SearchInputFilter) {
+import SearchInputFilter from '../../utils/searchinputfilter.js';
+
+
 
     class ClanesSearch {
         constructor(game, detallesClan, showMensajeCb, solicitudClanCb) {
@@ -67,5 +69,5 @@ define(['../../utils/searchinputfilter'], function (SearchInputFilter) {
         }
     }
 
-    return ClanesSearch;
-});
+    
+export default ClanesSearch;

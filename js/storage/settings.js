@@ -2,7 +2,10 @@
  * Created by horacio on 07/09/2016.
  */
 
-define(['storage/defaultsettings', 'storage/storage'], function (DefaultSettings, Storage) {
+import DefaultSettings from '../storage/defaultsettings.js';
+import Storage from '../storage/storage.js';
+
+
     class Settings {
         constructor() {
             this.storage = new Storage();
@@ -73,5 +76,5 @@ define(['storage/defaultsettings', 'storage/storage'], function (DefaultSettings
 
     }
 
-    return Settings;
-});
+    
+export default Settings;

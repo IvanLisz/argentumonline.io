@@ -2,8 +2,9 @@
  * Created by horacio on 7/26/16.
  */
 
-define(['enums'],
-    function (Enums) {
+import Enums from '../enums.js';
+
+
         class World {
             constructor(renderer) {
                 this.renderer = renderer;
@@ -79,5 +80,5 @@ define(['enums'],
             }
         }
 
-        return World;
-    });
+        
+export default World;

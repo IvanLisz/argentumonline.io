@@ -1,4 +1,10 @@
-define(['model/entity', 'transition', 'lib/pixi', 'enums', 'model/charactermovement'], function (Entity, Transition, PIXI, Enums, CharacterMovement) {
+import Entity from '../model/entity.js';
+import Transition from '../transition.js';
+import * as PIXI from 'pixi.js';
+import Enums from '../enums.js';
+import CharacterMovement from '../model/charactermovement.js';
+
+
 
     class Character extends Entity {
         constructor(CharIndex, gridX, gridY, Heading, Name, clan, Body, Head, Weapon, Shield, Helmet, FX, FXLoops, NickColor) {
@@ -201,5 +207,5 @@ define(['model/entity', 'transition', 'lib/pixi', 'enums', 'model/charactermovem
 
     }
 
-    return Character;
-});
+    
+export default Character;

@@ -2,7 +2,15 @@
  * Created by horacio on 4/3/16.
  */
 
-define(["text!../../../menus/mensajeGlobal.html!strip", 'ui/popups/popup'], function (DOMdata, PopUp) {
+// Import HTML template as string (will be handled by Vite)
+import htmlData from '../../../menus/mensajeGlobal.html?raw';
+import PopUp from '../../ui/popups/popup.js';
+
+// Extract content from body tag (similar to RequireJS text!strip)
+const parser = new DOMParser();
+const doc = parser.parseFromString(htmlData, 'text/html');
+const DOMdata = doc.body.innerHTML;
+
 
     class Mensaje extends PopUp {
         constructor() {
@@ -13,22 +21,28 @@ define(["text!../../../menus/mensajeGlobal.html!strip", 'ui/popups/popup'], func
                 minHeight: 150
             };
             super(DOMdata, options, true, true);
-            this.initCallbacks();
+            this._callbacksInitialized = false;
         }
 
         show(mensaje) {
             super.show();
-            $("#mensajeContenido").text(mensaje);
-            $("#mensajeBotonOk").focus();
+            
+            if (!this._callbacksInitialized) {
+                this.initCallbacks();
+                this._callbacksInitialized = true;
+            }
+            
+            this.$this.find("#mensajeContenido").text(mensaje);
+            this.$this.find("#mensajeBotonOk").focus();
         }
 
         initCallbacks() {
             var self = this;
-            $("#mensajeBotonOk").click(function () {
+            this.$this.find("#mensajeBotonOk").click(function () {
                 self.hide();
             });
         }
     }
 
-    return Mensaje;
-});
+    
+export default Mensaje;

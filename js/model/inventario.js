@@ -2,7 +2,9 @@
  * Created by horacio on 4/10/16.
  */
 
-define([], function () {
+
+
+
 
     class Inventario {
         constructor() {
@@ -50,5 +52,5 @@ define([], function () {
         }
 
     }
-    return Inventario;
-});
+    
+export default Inventario;

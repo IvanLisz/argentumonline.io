@@ -2,7 +2,11 @@
  * Created by horacio on 6/17/16.
  */
 
-define(["text!../../../menus/carpinteria.html!strip", 'ui/popups/popup'], function (DOMdata, PopUp) {
+// Import HTML template as string (will be handled by Vite)
+import DOMdata from '../../../menus/carpinteria.html?raw';
+import PopUp from '../../ui/popups/popup.js';
+
+
 
     class Carpinteria extends PopUp {
         constructor(game) {
@@ -85,5 +89,5 @@ define(["text!../../../menus/carpinteria.html!strip", 'ui/popups/popup'], functi
         }
     }
 
-    return Carpinteria;
-});
+    
+export default Carpinteria;

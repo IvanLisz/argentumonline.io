@@ -2,7 +2,11 @@
  * Created by horacio on 7/6/16.
  */
 
-define(["text!../../../menus/solicitudClan.html!strip", 'ui/popups/popup'], function (DOMdata, PopUp) {
+// Import HTML template as string (will be handled by Vite)
+import DOMdata from '../../../menus/solicitudClan.html?raw';
+import PopUp from '../../ui/popups/popup.js';
+
+
 
     class SolictudClan extends PopUp {
         constructor(game) {
@@ -46,5 +50,5 @@ define(["text!../../../menus/solicitudClan.html!strip", 'ui/popups/popup'], func
 
     }
 
-    return SolictudClan;
-});
+    
+export default SolictudClan;

@@ -2,7 +2,12 @@
  * Created by horacio on 5/3/16.
  */
 
-define(['model/game', 'model/intervalos', 'model/acciones', 'model/comandoschat'], function (Game, Intervalos, Acciones, ComandosChat) {
+import Game from '../model/game.js';
+import Intervalos from '../model/intervalos.js';
+import Acciones from '../model/acciones.js';
+import ComandosChat from '../model/comandoschat.js';
+
+
 
     class GameManager {
         constructor(assetManager, renderer) {
@@ -31,5 +36,5 @@ define(['model/game', 'model/intervalos', 'model/acciones', 'model/comandoschat'
 
 
     }
-    return GameManager;
-});
+    
+export default GameManager;

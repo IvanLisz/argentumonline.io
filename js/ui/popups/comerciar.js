@@ -2,21 +2,25 @@
  * Created by horacio on 2/22/16.
  */
 
-define(["text!../../../menus/comerciar.html!strip", 'ui/popups/popup', 'ui/game/itemgrid', 'jquery-ui'], function (DOMdata, PopUp, ItemGrid) {
+import PopUp from '../../ui/popups/popup.js';
+import ItemGrid from '../../ui/game/itemgrid.js';
+// jQuery UI should be loaded globally
 
-    class Comerciar extends PopUp {
-        constructor(game, acciones) {
+// Import HTML template as string (will be handled by Vite)
+import DOMdata from '../../../menus/comerciar.html?raw';
 
-            var options = {
-                width: 615,
-                height: 445,
-                minWidth: 250,
-                minHeight: 200
-            };
-            super(DOMdata, options);
+class Comerciar extends PopUp {
+    constructor(game, acciones) {
+        var options = {
+            width: 615,
+            height: 445,
+            minWidth: 250,
+            minHeight: 200
+        };
+        super(DOMdata, options);
 
-            this.game = game;
-            this.acciones = acciones;
+        this.game = game;
+        this.acciones = acciones;
 
             this.shopGrid = new ItemGrid("comerciarGridComprar",20);
             this.userGrid = new ItemGrid("comerciarGridVender",20);
@@ -149,5 +153,5 @@ define(["text!../../../menus/comerciar.html!strip", 'ui/popups/popup', 'ui/game/
         }
     }
 
-    return Comerciar;
-});
+    
+export default Comerciar;
