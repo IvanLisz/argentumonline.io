@@ -2,9 +2,10 @@ define(['../utils/util', 'enums', 'font', 'network/protocol', 'network/bytequeue
 
     class GameClient {
         constructor(game, uiManager, gameUI) {
-            this.VER_A = config.version.split(".")[0];
-            this.VER_B = config.version.split(".")[1];
-            this.VER_C = config.version.split(".")[2];
+            const versionParts = config.version.split(".");
+            this.VER_A = versionParts[0];
+            this.VER_B = versionParts[1];
+            this.VER_C = versionParts[2];
 
             this.game = game;
 
